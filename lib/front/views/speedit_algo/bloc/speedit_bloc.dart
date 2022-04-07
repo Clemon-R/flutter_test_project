@@ -12,6 +12,16 @@ class SpeeditBloc extends Bloc<SpeeditEvent, SpeeditState> {
 
   SpeeditBloc() : super(SpeeditClearState()) {
     on<SpeeditNewEntryEvent>((event, emit) {
+      var regExp = RegExp(
+        r"[0-9]",
+      );
+      if (event.articles.isNotEmpty && !regExp.hasMatch(event.articles)) {
+        emit(SpeeditResultState(
+          articles: _articles,
+          result: "Input error",
+        ));
+        return;
+      }
       _articles = event.articles;
       emit(SpeeditResultState(
         articles: _articles,

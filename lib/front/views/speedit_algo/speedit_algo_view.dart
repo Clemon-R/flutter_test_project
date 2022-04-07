@@ -8,7 +8,7 @@ import 'bloc/speedit_state.dart';
 
 class SpeeditAlgoView extends StatelessWidget {
   final TextEditingController _controller = TextEditingController(text: "");
-  late final SpeeditBloc _bloc;
+  final SpeeditBloc _bloc = SpeeditBloc();
 
   SpeeditAlgoView({Key? key}) : super(key: key) {
     _controller.addListener(() {
@@ -18,12 +18,8 @@ class SpeeditAlgoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SpeeditBloc>(
-      lazy: false,
-      create: (BuildContext context) {
-        _bloc = SpeeditBloc();
-        return _bloc;
-      },
+    return BlocProvider.value(
+      value: _bloc,
       child: BlocBuilder<SpeeditBloc, SpeeditState>(builder: (context, state) {
         return Container(
           margin: const EdgeInsets.only(
