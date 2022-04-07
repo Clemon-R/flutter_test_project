@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../speedit_algo/speedit_algo_view.dart';
-import '../users_list/users_list.dart';
+import '../users_list/users_list_view.dart';
 
 class TapBarView extends StatelessWidget {
   const TapBarView({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class TapBarView extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.white.withAlpha(230),
+        backgroundColor: Colors.grey[250],
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(
               color: Colors.white,
@@ -44,7 +44,7 @@ class TapBarView extends StatelessWidget {
         body: SafeArea(
           child: TabBarView(
             children: [
-              const UsersList(),
+              UsersList(),
               SpeeditAlgoView(),
             ],
           ),
