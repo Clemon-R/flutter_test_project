@@ -83,7 +83,10 @@ class UsersList extends StatelessWidget {
           itemExtent: 130.0,
           delegate: SliverChildBuilderDelegate(
             (context, index) {
-              return UsersCardComponent(user: state.users.users[index]);
+              return UsersCardComponent(
+                user: state.users.users[index],
+                isClickable: true,
+              );
             },
             childCount: state.users.users.length,
           ),

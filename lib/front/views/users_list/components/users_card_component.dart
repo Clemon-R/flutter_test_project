@@ -5,17 +5,22 @@ import 'package:test_project/job/models/user_model.dart';
 
 class UsersCardComponent extends StatelessWidget {
   final UserModel user;
+  final bool isClickable;
 
-  const UsersCardComponent({Key? key, required this.user}) : super(key: key);
+  const UsersCardComponent(
+      {Key? key, required this.user, required this.isClickable})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const UserDetailView()),
-        );
+        if (isClickable) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => UserDetailView(user: user)),
+          );
+        }
       },
       child: Container(
         width: double.infinity,
