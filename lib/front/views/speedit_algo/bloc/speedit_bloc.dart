@@ -22,6 +22,7 @@ class SpeeditBloc extends Bloc<SpeeditEvent, SpeeditState> {
         ));
         return;
       }
+
       _articles = event.articles;
       emit(SpeeditResultState(
         articles: _articles,

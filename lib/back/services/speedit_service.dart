@@ -4,6 +4,7 @@ class SpeeditService extends ISpeeditService {
   @override
   String splitArticlesByCards(String articles) {
     if (articles.isEmpty) return "";
+
     var queue = <int>[];
     for (var charCode in articles.runes) {
       queue.add(int.parse(String.fromCharCode(charCode)));
